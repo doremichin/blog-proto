@@ -2,11 +2,15 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useForm } from 'react-hook-form';
 
-const WriteForm = ({ onSubmit }) => {
+const WriteForm = ({ onSubmit, data = {} }) => {
   const {
     register, handleSubmit, watch, formState: { errors },
-  } = useForm();
-
+  } = useForm({
+    defaultValues: {
+      title: data.title,
+      story: data.story,
+    },
+  });
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -23,8 +27,11 @@ const WriteForm = ({ onSubmit }) => {
             <TextArea type="text" {...register('story')} />
           </Label>
         </FormItem>
-
-        <ButtonSubmit type="submit">새 글 쓰기</ButtonSubmit>
+        {
+          !Object.keys(data).length > 0
+            ? <ButtonSubmit type="submit">새 글 쓰기</ButtonSubmit>
+            : <ButtonSubmit type="submit">수정 완료</ButtonSubmit>
+        }
       </Form>
     </Container>
   );

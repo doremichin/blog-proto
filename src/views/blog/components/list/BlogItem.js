@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BlogItem = ({ item, index }) => (
-  <Container>
+const BlogItem = ({ item, index, onClick }) => (
+  <Container onClick={() => onClick(item.id)}>
     <Thumb>
       <img src={item.thumbnail} alt="" />
     </Thumb>
@@ -14,6 +14,7 @@ const BlogItem = ({ item, index }) => (
 );
 
 const Container = styled.div`
+  cursor: pointer;
 `;
 const Thumb = styled.div`
   img{

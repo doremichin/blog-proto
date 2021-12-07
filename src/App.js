@@ -7,6 +7,8 @@ import Blog from './pages/Blog';
 import Header from './views/shared/header/components';
 import MyPage from './pages/MyPage';
 import Write from './pages/Write';
+import Detail from './pages/Detail';
+import Edit from './pages/Edit';
 
 const App = () => (
   <Container>
@@ -14,6 +16,8 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Blog} />
       <Route exact path="/write" component={Write} />
+      <Route exact path="/detail/:id" component={Detail} />
+      <Route exact path="/edit/:id" component={Edit} />
       <Route exact path="/mypage" component={MyPage} />
     </Switch>
 
