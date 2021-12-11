@@ -1,25 +1,23 @@
-const initialState = {
-  list: [],
-};
-export const ActionTypes = {
-  SET_BLOG_LIST: 'BLOG/SET_BLOG_LIST',
-};
-export const ActionCreators = {
-  setBlogList: (payload) => ({
-    type: ActionTypes.SET_BLOG_LIST,
-    payload,
-  }),
-};
+const { createSlice } = require('@reduxjs/toolkit');
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    default: return state;
-    case ActionTypes.SET_BLOG_LIST: {
-      return {
-        ...state,
-        list: action.payload,
-      };
-    }
-  }
-};
+const { actions, reducer } = createSlice({
+  name: 'blog',
+  initialState: {
+    list: [],
+    detail: {},
+  },
+  reducers: {
+    setBlogList(state, { payload }) {
+      state.list = payload;
+    },
+    setBlogById(state, { payload }) {
+      state.detail[payload.id] = payload;
+    },
+    setBlogDetail(state, { payload }) {
+      state.detail = payload;
+    },
+  },
+});
+export const { setBlogList, setBlogById, setBlogDetail } = actions;
+
 export default reducer;

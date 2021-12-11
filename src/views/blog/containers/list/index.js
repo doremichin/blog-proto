@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ActionCreators } from '../../redux/slice';
+import { setBlogList } from '../../redux/slice';
 import BlogList from '../../components/list';
 import BlogItem from '../../components/list/BlogItem';
 import { ContentContainer } from '../../../shared/layout/Layout.Styled';
@@ -14,7 +14,8 @@ const BlogContainer = () => {
 
   const getBlogList = async () => {
     const result = await getCollection('blog');
-    dispatch(ActionCreators.setBlogList(result));
+    dispatch(setBlogList(result));
+    console.log(result);
   };
 
   useEffect(() => {
