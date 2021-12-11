@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import UserInfoContainer from '../containers/UserInfoContainer';
+
 const Header = () => (
   <Container>
-    <Logo>
+    <Logo to="/">
       blog
     </Logo>
     <Nav>
       <NavLink to="/">home</NavLink>
       <NavLink to="/mypage">mypage</NavLink>
     </Nav>
+    <UserInfoContainer />
   </Container>
 );
 
@@ -21,7 +24,8 @@ const Container = styled.div`
   padding: 0 50px;
   border-bottom: 1px solid #eee;
 `;
-const Logo = styled.div`
+const Logo = styled(Link)`
+  display: flex;
   font-size: 20px;
   color: #333;
   text-transform: uppercase;

@@ -7,21 +7,30 @@ import Blog from './pages/Blog';
 import Header from './views/shared/header/components';
 import MyPage from './pages/MyPage';
 import Write from './pages/Write';
+import Detail from './pages/Detail';
+import Edit from './pages/Edit';
+import { useAuthState } from './views/auth/hooks/useAuthState';
 
-const App = () => (
-  <Container>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={Blog} />
-      <Route exact path="/write" component={Write} />
-      <Route exact path="/mypage" component={MyPage} />
-    </Switch>
+const App = () => {
+  useAuthState();
+  return (
+    <Container>
+      <Header />
 
-    <ToWrite to="/write">
-      <BsPencil />
-    </ToWrite>
-  </Container>
-);
+      <Switch>
+        <Route exact path="/" component={Blog} />
+        <Route exact path="/write" component={Write} />
+        <Route exact path="/blog/:id" component={Detail} />
+        <Route exact path="/edit/:id" component={Edit} />
+        <Route exact path="/mypage" component={MyPage} />
+      </Switch>
+
+      <ToWrite to="/write">
+        <BsPencil />
+      </ToWrite>
+    </Container>
+  );
+};
 
 const Container = styled.div`
 

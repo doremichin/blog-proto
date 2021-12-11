@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import BlogForm from '../../../shared/blogForm';
 import PageTitle from '../../../shared/title/PageTitle';
+import BlogForm from '../../../shared/blogForm';
 
-const WriteForm = ({ onSubmit }) => (
+const EditForm = ({ data, onSubmit }) => (
   <Container>
-    <PageTitle title="새글 작성" />
-    <BlogForm onSubmit={onSubmit} buttonText="작성하기" />
+    <PageTitle title="수정하기" />
+    <BlogForm data={data} buttonText="수정하기" onSubmit={onSubmit} />
   </Container>
 );
 
@@ -16,7 +16,5 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 100px 0;
 `;
-const Title = styled.div`
-  
-`;
-export default WriteForm;
+
+export default EditForm;

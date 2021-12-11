@@ -1,19 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const BlogItem = ({ item, index }) => (
-  <Container>
-    <Thumb>
-      <img src={item.thumbnail} alt="" />
-    </Thumb>
-    <Desc>
-      <h3>{item.title}</h3>
-      <p>{item.story}</p>
-    </Desc>
-  </Container>
-);
+const BlogItem = ({ item, index }) => {
+  const {
+    id, thumbnail, story, title,
+  } = item;
+  return (
+    <Container to={`/blog/${item.id}`}>
+      <Thumb>
+        <img src={item.thumbnail} alt="" />
+      </Thumb>
+      <Desc>
+        <h3>{item.title}</h3>
+        <p>{item.story}</p>
+      </Desc>
+    </Container>
+  );
+};
 
-const Container = styled.div`
+const Container = styled(Link)`
+  display: block;
+  cursor: pointer;
 `;
 const Thumb = styled.div`
   img{
@@ -30,8 +38,11 @@ const Desc = styled.div`
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 7px;
+    color: #333;
   }
   p{
+    white-space: pre-line;
+    word-wrap:break-word;
     font-size: 15px;
     line-height: 1.6;
     color: #777;
