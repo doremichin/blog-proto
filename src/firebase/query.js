@@ -21,7 +21,6 @@ export const getCollection = async (collectionId) => {
 export const getDocument = async (collectionId, documentId) => {
   const ref = doc(db, collectionId, documentId);
   const docSnap = await getDoc(ref);
-  console.log('docSnap', docSnap);
 
   if (!docSnap.exists()) return null;
 

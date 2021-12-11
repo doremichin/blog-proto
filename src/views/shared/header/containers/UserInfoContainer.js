@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import UserInfo from '../components/UserInfo';
 import UserInfoLoader from '../components/UserInfoLoader';
 import SignInButton from '../../../sign/components/signButtons/SignInButton';
-import SignoutButton from '../../../sign/components/signButtons/SignoutButton';
+import SignOutButton from '../../../sign/components/signButtons/SignOutButton';
 
 const UserInfoContainer = () => {
   const { user, authInitialized } = useSelector((state) => state.auth);
@@ -13,13 +13,11 @@ const UserInfoContainer = () => {
   if (!authInitialized) return <UserInfoLoader />;
 
   if (!user) return <SignInButton />;
-  const onClickLogout = () => {
 
-  };
   return (
     <Container>
       <UserInfo data={user} />
-      <SignoutButton />
+      <SignOutButton />
     </Container>
   );
 };

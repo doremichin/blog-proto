@@ -21,7 +21,6 @@ const FormMessage = ({ type }) => (
 );
 
 const Container = styled.div`
-
 `;
 
 export default FormMessage;

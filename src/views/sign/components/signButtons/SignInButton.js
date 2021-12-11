@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { googleLogin } from '../../../../firebase/googleLogin';
+import { Link } from 'react-router-dom';
 
 const SignInButton = () => (
-  <Container onClick={googleLogin}>
+  <Container to="/login">
     Login
   </Container>
 );
 
-const Container = styled.div`
+const Container = styled(Link)`
+  display: block;
   border: 1px solid #18f;
   color: #18f;
   border-radius: 3px;font-weight: 500;
@@ -21,7 +21,6 @@ const Container = styled.div`
   font-size: 13px;
   cursor: pointer;
   text-transform: capitalize;
- 
 `;
 
 export default SignInButton;

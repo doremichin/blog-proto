@@ -10,6 +10,8 @@ import Write from './pages/Write';
 import Detail from './pages/Detail';
 import Edit from './pages/Edit';
 import { useAuthState } from './views/auth/hooks/useAuthState';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 const App = () => {
   useAuthState();
@@ -22,6 +24,8 @@ const App = () => {
         <Route exact path="/write" component={Write} />
         <Route exact path="/blog/:id" component={Detail} />
         <Route exact path="/edit/:id" component={Edit} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/mypage" component={MyPage} />
       </Switch>
 

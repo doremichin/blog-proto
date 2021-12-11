@@ -9,6 +9,7 @@ const Message = ({ children, error }) => (
 );
 
 const Container = styled.div`
+  font-size: 13px;
   &.error{
     color: #ff5252;
   }

@@ -4,14 +4,15 @@ import styled from 'styled-components';
 const UserInfo = ({ data }) => (
   <Container>
     <Avatar>
-      <img src={data.photoURL} alt="" />
+      {
+            data.photoURL ? <img src={data.photoURL} alt="" /> : null
+        }
     </Avatar>
     <Info>
       <p>
         <strong>{data.displayName}</strong>
       </p>
       <p>{data.email}</p>
-
     </Info>
   </Container>
 );
@@ -22,10 +23,14 @@ const Container = styled.div`
 `;
 const Avatar = styled.div`
   display: flex;
+  background-color: #eee;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
   img{
     width: 30px;
     height: 30px;
-    border-radius: 50%;
   }
 `;
 const Info = styled.div`
