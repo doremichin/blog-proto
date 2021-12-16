@@ -16,7 +16,4 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 100px 0;
 `;
-const Title = styled.div`
-  
-`;
 export default WriteForm;

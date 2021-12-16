@@ -9,8 +9,8 @@ export const errorTypes = {
   IS_VALID_STORY_LENGTH: 'isValidStoryLength',
 };
 const messageComponent = {
-  [errorTypes.IS_VALID_EMAIL]: <Message error>이메일을 입력하세요</Message>,
-  [errorTypes.REQUIRED]: <Message error>필수입력</Message>,
+  [errorTypes.IS_VALID_EMAIL]: <Message error>올바른 이메일을 입력하세요.</Message>,
+  [errorTypes.REQUIRED]: <Message error>필수입력 사항입니다.</Message>,
   [errorTypes.IS_VALID_STORY_LENGTH]: <Message error>200자 이상</Message>,
 };
 
