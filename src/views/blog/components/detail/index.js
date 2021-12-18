@@ -10,6 +10,7 @@ const DetailContent = ({ data, onEdit, onDelete }) => (
     <Title>
       {data.title}
     </Title>
+    <img src={data.thumbnailUrl} alt="" />
     <Story>
       {data.story}
     </Story>

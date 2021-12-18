@@ -3,25 +3,25 @@ import styled from 'styled-components';
 
 import { googleLogin } from '../../../../firebase/googleLogin';
 
-const SignInButton = () => (
+const GoogleSignInButton = () => (
   <Container onClick={googleLogin}>
-    Login
+    Google Login
   </Container>
 );
 
 const Container = styled.div`
-  border: 1px solid #18f;
-  color: #18f;
-  border-radius: 3px;font-weight: 500;
-  height: 36px;
-  width: 90px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  cursor: pointer;
-  text-transform: capitalize;
- 
+  width: 340px;
+  height: 45px;
+  padding: 10px;
+  background-color: #fff;
+  color: #111;
+  font-size: 14px;
+  margin: 20px 0;
+  border: 1px solid #eee;
 `;
 
-export default SignInButton;
+export default GoogleSignInButton;

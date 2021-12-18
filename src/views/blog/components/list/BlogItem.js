@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const BlogItem = ({ item, index }) => {
   const {
-    id, thumbnail, story, title,
+    id, thumbnailUrl, story, title,
   } = item;
   return (
-    <Container to={`/blog/${item.id}`}>
+    <Container to={`/blog/${id}`}>
       <Thumb>
-        <img src={item.thumbnail} alt="" />
+        <img src={thumbnailUrl} alt="" />
       </Thumb>
       <Desc>
-        <h3>{item.title}</h3>
-        <p>{item.story}</p>
+        <h3>{title}</h3>
+        <p>{story}</p>
       </Desc>
     </Container>
   );

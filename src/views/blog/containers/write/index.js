@@ -8,7 +8,6 @@ import { setDocument } from '../../../../firebase/query';
 const WriteContainer = () => {
   const history = useHistory();
   const writeBlog = (data) => {
-    console.log(data);
     setDocument('blog', data);
     history.push('/');
   };

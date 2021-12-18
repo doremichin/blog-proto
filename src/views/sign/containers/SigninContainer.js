@@ -2,15 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SignInForm from '../components/signForm/SignInForm';
+import { signIn } from '../../../firebase/auth';
 
-const SigninContainer = () => (
-  <Container>
-    <SignInForm />
-  </Container>
-);
+const SignInContainer = () => {
+  const onSubmit = (values) => {
+    signIn(values.email, values.password);
+  };
+  return (
+    <Container>
+      <SignInForm onSubmit={onSubmit} />
+    </Container>
+  );
+};
 
 const Container = styled.div`
 
 `;
 
-export default SigninContainer;
+export default SignInContainer;

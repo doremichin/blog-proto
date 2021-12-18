@@ -68,6 +68,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'react/require-default-props': 'off',
         'react/prop-types': 'off',
-        'react/react-in-jsx-scope': 'off'
+        'react/react-in-jsx-scope': 'off',
+        'import/no-cycle' : 'off'
     },
 };
