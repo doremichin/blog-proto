@@ -4,22 +4,30 @@ import { useForm } from 'react-hook-form';
 
 import FormMessage, { errorTypes } from '../message/FormMessage';
 import { Validate } from '../../../validate';
+import ImageUploader from '../imageUploader';
 
 const BlogForm = ({ onSubmit, data, buttonText }) => {
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, watch, formState: { errors }, setValue,
   } = useForm();
 
-  console.log(errors);
+  const formSubmit = async ({ title, story, thumbnailUrl }) => {
+    onSubmit({
+      title,
+      story,
+      thumbnailUrl,
+    });
+  };
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(formSubmit)}>
         <FormItem>
           <Label>
             <LabelText>제목</LabelText>
             <Input
                 type="text"
+                autoFocus
                 {...register('title', { required: true })}
                 defaultValue={data?.title}
             />
@@ -41,7 +49,10 @@ const BlogForm = ({ onSubmit, data, buttonText }) => {
           </Label>
           <FormMessage type={errors?.story?.type} />
         </FormItem>
-
+        <ImageUploader
+            onChange={(url) => setValue('thumbnailUrl', url)}
+            thumbnailUrl={data?.thumbnailUrl}
+        />
         <ButtonSubmit type="submit">{buttonText}</ButtonSubmit>
       </Form>
     </Container>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { googleLogout } from '../../../../firebase/googleLogin';
 
-const SignoutButton = () => (
+const SignOutButton = () => (
   <Container onClick={googleLogout}>
     logout
   </Container>
@@ -23,4 +23,4 @@ const Container = styled.div`
   text-transform: capitalize;
 `;
 
-export default SignoutButton;
+export default SignOutButton;

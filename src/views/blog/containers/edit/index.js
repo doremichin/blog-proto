@@ -22,6 +22,7 @@ const EditContainer = () => {
     dispatch(setBlogDetail(draftDetail));
     history.push('/');
   };
+  if (!data) return null;
 
   return (
     <Container>
